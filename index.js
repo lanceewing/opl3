@@ -5,7 +5,8 @@ module.exports = {
         MUS: require('./format/mus'),
         DRO: require('./format/dro'),
         IMF: require('./format/imf'),
-        RAW: require('./format/raw')
+        RAW: require('./format/raw'),
+        ROL: require('./format/rol')
     },
     WAV: require('wav-arraybuffer'),
     ConvertTo32Bit: require('pcm-bitdepth-converter').From16To32Bit,

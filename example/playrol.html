@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OPL3</title>
+	<script type="text/javascript" src="../dist/opl3.js"></script>
+</head>
+<script type="text/javascript">
+function playROL() {
+    fetch('data/HIGHWAYS.ROL').then(function(res){
+        return res.arrayBuffer();
+    }).then(function(rol){
+        fetch('data/STANDARD.BNK').then(function(res){
+            return res.arrayBuffer();
+        }).then(function(standardBank){
+            player = new OPL3.Player(OPL3.format.ROL, {
+                instruments: standardBank,
+                prebuffer: 3000,
+                volume: 3
+            });
+            player.play(rol);
+            player.on('progress', function(){
+                document.body.innerHTML = player.position + 'ms / ' + player.length + 'ms';
+            });
+            player.on('position', function(ms){
+                document.body.innerHTML = ms + 'ms / ' + player.length + 'ms';
+            });
+        });
+    });
+}
+</script>
+<body>
+<a href="#" onclick="playROL();return false;">Play ROL!</a>
+</body>
+</html>

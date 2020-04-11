@@ -65,7 +65,8 @@
     "vorbis": "github:doomjs/node-vorbis"
   },
   "devDependencies": {
-    "browserify": "^13.0.1",
+    "browserify": "^15.0.1",
+    "derequire": "^2.1.0",
     "eslint": "^3.2.0",
     "uglify-js": "^2.6.4"
   }

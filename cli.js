@@ -25,6 +25,7 @@ var MUS = opl3.format.MUS;
 var DRO = opl3.format.DRO;
 var IMF = opl3.format.IMF;
 var RAW = opl3.format.RAW;
+var ROL = opl3.format.ROL;
 var WAV = opl3.WAV;
 var package = require('./package.json');
 
@@ -44,6 +45,7 @@ argv = argv.describe('mid', 'Export to MIDI')
 	.describe('dro', 'Use DRO format')
 	.describe('imf', 'Use IMF format')
 	.describe('raw', 'Use RAW format')
+	.describe('rol', 'Use ROL format')
 	.describe('genmidi', 'Use external GENMIDI lump (only MUS format)')
 	.describe('normalize', 'PCM audio normalization (default on, turn off with -n0)');
 
@@ -158,6 +160,7 @@ else{
 				else if (argv.dro || filename.split('.').pop().toLowerCase() == 'dro') midiFormat = DRO;
 				else if (argv.imf || filename.split('.').pop().toLowerCase() == 'imf') midiFormat = IMF;
 				else if (argv.raw || filename.split('.').pop().toLowerCase() == 'raw') midiFormat = RAW;
+				else if (argv.rol || filename.split('.').pop().toLowerCase() == 'rol') midiFormat = ROL;
 				else{
 					console.log(chalk.red('Unknown file format!'));
 					process.exit(1);
